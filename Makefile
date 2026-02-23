@@ -1,10 +1,13 @@
-all: mtr
+all: vectr
 
 
-wqy24/assert.c:
-	gsc -:s -module-ref wqy24/assert -c . wqy24/assert.sld
+assert.c:
+	gsc -:s -o assert.c -module-ref wqy24/assert -c $(GSC-OPTIONS) . wqy24/assert.sld
 
-mtr: wqy24/assert.c
-	gsc -:s -exe  -ld-options -lsoundio  . wqy24/assert.c mtr.scm
+vectr: assert.c
+	gsc -:s -o vectr -exe -ld-options -lsoundio $(GSC-OPTIONS) . assert.c main.scm
 
-
+clean:
+	rm vectr
+dev: GSC-OPTIONS+=-debug -warnings
+dev: all
