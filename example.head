@@ -1,0 +1,6 @@
+((engine . default)
+ (scales
+  (#\1 . "wqy24.scl")
+  (#\c . 12))
+ (inst-desc . (pulse . 1/4))
+ (volume . #xAE))
